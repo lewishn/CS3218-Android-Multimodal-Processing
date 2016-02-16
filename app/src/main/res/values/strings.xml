@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">CS3218Tut_LewisHarisNata</string>
+    <string name="button_calc">Calculator</string>
+    <string name="button_graph">Graphing</string>
+
+    <string name="digit_0">0</string>
+    <string name="digit_1">1</string>
+    <string name="digit_2">2</string>
+    <string name="digit_3">3</string>
+    <string name="digit_4">4</string>
+    <string name="digit_5">5</string>
+    <string name="digit_6">6</string>
+    <string name="digit_7">7</string>
+    <string name="digit_8">8</string>
+    <string name="digit_9">9</string>
+    <string name="symbol_ac">AC</string>
+    <string name="symbol_c">C</string>
+    <string name="symbol_root">√</string>
+    <string name="symbol_plus">+</string>
+    <string name="symbol_minus">-</string>
+    <string name="symbol_times">x</string>
+    <string name="symbol_divide">/</string>
+    <string name="symbol_dot">.</string>
+    <string name="symbol_equal">=</string>
+
+    <string name="sine">Sine</string>
+    <string name="cosine">Cosine</string>
+    <string name="back_to_main">Back To Main</string>
+    <string name="Aplus">A+</string>
+    <string name="Aminus">A-</string>
+    <string name="Pplus">P+</string>
+    <string name="Pminus">P-</string>
+    <string name="Fplus">F+</string>
+    <string name="Fminus">F-</string>
+    <string name="compositeFunction">Composite Function</string>
+</resources>
