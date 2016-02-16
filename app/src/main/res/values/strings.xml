@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">CS3218Tut_LewisHarisNata</string>
-    <string name="button_calc">Calculator</string>
-    <string name="button_graph">Graphing</string>
+    <string name="button_calc">Calculator (Tutorial 1)</string>
+    <string name="button_graph">Graphing (Tutorial 2)</string>
+    <string name="button_sound">Sound (Tutorial 3)</string>
 
     <string name="digit_0">0</string>
     <string name="digit_1">1</string>
