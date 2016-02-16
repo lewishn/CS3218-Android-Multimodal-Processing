@@ -1,4 +1,4 @@
-package com.example.ngtk.cs3218alltutorials;
+package sg.edu.nus.cs3218tut_lewisharisnata;
 
 import android.media.AudioRecord;
 import android.util.Log;
@@ -9,7 +9,8 @@ import android.util.Log;
 
 public class SoundSampler {
     private static final int  FS = 16000;     // sampling frequency
-    public AudioRecord audioRecord;
+    public AudioRecord        audioRecord;
+    public Boolean            recording = Boolean.valueOf(true);
     private int               audioEncoding = 2;
     private int               nChannels = 16;
     private Thread            recordingThread;
@@ -56,7 +57,7 @@ public class SoundSampler {
         {
             public void run()
             {
-                while (true)
+                while (recording)
                 {
 
                     audioRecord.read(SoundSamplingActivity.buffer, 0, SoundSamplingActivity.bufferSize);
@@ -68,11 +69,17 @@ public class SoundSampler {
         recordingThread.start();
 
         return;
-
-
-
     }
 
-
+    public void stopRecordingThread() throws InterruptedException {
+        recording = Boolean.valueOf(false);
+        if (audioRecord != null) {
+            audioRecord.stop();
+            audioRecord.release();
+        }
+        if (recordingThread != null) {
+            recordingThread.join();
+        }
+    }
 
 }

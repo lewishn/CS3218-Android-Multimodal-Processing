@@ -20,8 +20,8 @@ public class CSurfaceViewGraph extends SurfaceView implements SurfaceHolder.Call
     private Context drawContext;
     public  DrawThread       drawThread;
     private SurfaceHolder    drawSurfaceHolder;
-    private Boolean          threadExists = false;
-    public static volatile   Boolean drawFlag = false;
+    private Boolean          threadExists = Boolean.valueOf(false);
+    public static volatile   Boolean drawFlag = Boolean.valueOf(false);
 
     private static final Handler handler = new Handler(){
         public void handleMessage(Message paramMessage) {}

@@ -1,4 +1,4 @@
-package com.example.ngtk.cs3218alltutorials;
+package sg.edu.nus.cs3218tut_lewisharisnata;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -102,7 +102,7 @@ public class CSurfaceViewSoundSampling extends SurfaceView implements SurfaceHol
 
     class DrawThread extends Thread
     {
-        private Bitmap soundBackgroundImage;
+        private Bitmap         soundBackgroundImage;
         private short[]        soundBuffer;
         private int[]          soundSegmented;
         public  Boolean        soundCapture = Boolean.valueOf(false);
@@ -110,7 +110,7 @@ public class CSurfaceViewSoundSampling extends SurfaceView implements SurfaceHol
         public  int            segmentIndex = -1;
         private int            soundCanvasHeight = 0;
         private int			   soundCanvasWidth  = 0;
-        private Paint soundLinePaint;
+        private Paint          soundLinePaint;
         private Paint		   soundLinePaint2;
         private Paint          soundLinePaint3;
         private SurfaceHolder  soundSurfaceHolder;
@@ -163,13 +163,9 @@ public class CSurfaceViewSoundSampling extends SurfaceView implements SurfaceHol
             paint.setTextSize(20);
             canvas.drawText("'Capture Sound' to see a snapshot of sound waveform", 250, 20, paint);
 
-
             if (!soundCapture) {
 
                 int xStart = 0;
-
-                // while (xStart < width -1)  {
-
                 while (xStart < soundBuffer.length-1) {
 
                     int yStart = soundBuffer[xStart] / height * drawScale;
@@ -191,7 +187,6 @@ public class CSurfaceViewSoundSampling extends SurfaceView implements SurfaceHol
 
                 }
 
-
             } else if (soundCapture) {
 
                 if (segmentIndex < 0) {
@@ -204,14 +199,25 @@ public class CSurfaceViewSoundSampling extends SurfaceView implements SurfaceHol
 
 
                 // display the signal in temporal domain
-                // --- fill in the codes here to display a snapshot of the sound waveform
-                /******/
-                
-                
-                
-                /****/
+                int xStart = 0;
+                while (xStart < width - 1) {
 
+                    int yStart = soundSegmented[xStart] / height * drawScale + height/2;
+                    int yStop  = soundSegmented[xStart+1] / height * drawScale + height/2;
 
+                    int yStart1 = yStart + height/4;
+                    int yStop1  = yStop  + height/4;
+
+                    canvas.drawLine(xStart, yStart1, xStart +1, yStop1, soundLinePaint);
+
+                    if (xStart %100 == 0) {
+                        paint.setColor(Color.BLACK);
+                        paint.setTextSize(20);
+                        canvas.drawText(Integer.toString(xStart), xStart, height/2, paint);
+                        canvas.drawText(Integer.toString(yStop),  xStart, yStop1, paint);
+                    }
+                    xStart++;
+                }
             }
 
         }

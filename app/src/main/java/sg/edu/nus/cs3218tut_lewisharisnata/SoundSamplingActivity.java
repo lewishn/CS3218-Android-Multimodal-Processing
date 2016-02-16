@@ -1,4 +1,4 @@
-package com.example.ngtk.cs3218alltutorials;
+package sg.edu.nus.cs3218tut_lewisharisnata;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,12 +15,16 @@ public class SoundSamplingActivity extends Activity {
     public  static int      bufferSize;     // in bytes
 
     public void goToMainActivity(View view){
-
-        // --- fill up codes here to end all drawings and sound sampling before returning to MainActivity
-
-        /****/
-        
-        /****/
+        try
+        {
+            surfaceView.drawFlag = Boolean.valueOf(false);
+            surfaceView.drawThread.join();
+            soundSampler.stopRecordingThread();
+        }
+        catch (InterruptedException localInterruptedException) {
+            Log.d("Error closing threads", localInterruptedException.getMessage());
+        }
+        finish();
     }
 
 
@@ -54,7 +58,6 @@ public class SoundSamplingActivity extends Activity {
         }
         else {
             surfaceView.drawThread.soundCapture = Boolean.valueOf(true);
-
         }
     }
 

@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.ngtk.cs3218alltutorials.SoundSamplingActivity">
+    tools:context=".SoundSamplingActivity">
 
 
-    <com.example.ngtk.cs3218alltutorials.CSurfaceViewSoundSampling
+    <sg.edu.nus.cs3218tut_lewisharisnata.CSurfaceViewSoundSampling
         android:id="@+id/surfaceView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -27,6 +27,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:onClick="goToMainActivity"
-        android:text="@string/goToMainActivity" />
+        android:text="@string/back_to_main" />
 
 </LinearLayout>
