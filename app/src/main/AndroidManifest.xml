@@ -20,6 +20,7 @@
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".GraphActivity"></activity>
         <activity android:name=".SoundSamplingActivity"></activity>
+        <activity android:name=".CalculusActivity"></activity>
     </application>
 
 </manifest>

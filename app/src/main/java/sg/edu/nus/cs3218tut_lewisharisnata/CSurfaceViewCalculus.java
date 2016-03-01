@@ -76,9 +76,7 @@ public class CSurfaceViewCalculus extends SurfaceView implements SurfaceHolder.C
 
     public void surfaceCreated(SurfaceHolder paramSurfaceHolder)
     {
-
         init();
-
     }
 
 
@@ -190,26 +188,15 @@ public class CSurfaceViewCalculus extends SurfaceView implements SurfaceHolder.C
                 xStart++;
             }
 
-            
-            
-            
-            
+
             // mark the interval for a period (of fundamental frequency)
             // hint: you need to draw on canvas a rectangle that shows the period of the composite signal
             //       you also need to set the alpha value of the filled triangle to make it translucent
-            /*
-            ------ missing code -------
-            */
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            Paint picasso = new Paint();
+            picasso.setARGB(100, 0, 0, 0);
+            canvas.drawRect(0, height/4 - 50, CalculusActivity.period, height/4 + 50, picasso);
+            System.out.println("PERIOD:" + CalculusActivity.period);
+
             
             xStart = 0;
 

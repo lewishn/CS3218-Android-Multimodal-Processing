@@ -34,7 +34,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_sound"
+        android:text="@string/button_calculus"
         android:id="@+id/button_calculus"
         android:onClick="goToCalculus"/>
 </LinearLayout>

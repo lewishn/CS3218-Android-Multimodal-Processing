@@ -43,16 +43,13 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
 
 
     public void goToMainActivity(View view) {
-        
-        try
-        {
+        try {
             CSurfaceViewCalculus.drawFlag = Boolean.valueOf(false);
             surfaceView.drawThread.join();
         }
-        catch (InterruptedException localInterruptedException)
-        {
-        }
+        catch (InterruptedException localInterruptedException) {
 
+        }
 
         finish();
     }
@@ -96,7 +93,6 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
     }
 
     public void AplusPressed(View view){
-
         if (trigo.equalsIgnoreCase("sine")) {
             sineAmplitude += 1.0;
 
@@ -105,11 +101,9 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
         }
 
         composeSignal();
-
     }
 
     public void AminusPressed(View view){
-
         if (trigo.equalsIgnoreCase("sine")) {
             sineAmplitude -= 1.0;
 
@@ -118,12 +112,9 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
         }
 
         composeSignal();
-
-
     }
 
     public void FplusPressed(View view){
-
         if (trigo.equalsIgnoreCase("sine")) {
             sineFrequency += 1.0;
 
@@ -132,11 +123,9 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
         }
 
         composeSignal();
-
     }
 
     public void FminusPressed(View view){
-
         if (trigo.equalsIgnoreCase("sine")) {
             sineFrequency -= 1.0;
 
@@ -145,11 +134,9 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
         }
 
         composeSignal();
-
     }
 
     public void PplusPressed(View view){
-
         if (trigo.equalsIgnoreCase("sine")) {
             sinePhase += 1.0;
 
@@ -158,11 +145,9 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
         }
 
         composeSignal();
-
     }
 
     public void PminusPressed(View view){
-
         if (trigo.equalsIgnoreCase("sine")) {
             sinePhase -= 1.0;
 
@@ -171,14 +156,10 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
         }
 
         composeSignal();
-
     }
 
 
-
-
     public void composeSignal() {
-
         displayFunction.setText(String.valueOf(sineAmplitude) + " sin( 2π" +
                 String.valueOf(sineFrequency) + " + " + String.valueOf(sinePhase) + " )" + " + " +
                 String.valueOf(cosineAmplitude) + " cos( 2π" +
@@ -210,19 +191,17 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
     public void findFundFreq() {
         // compute the fundamental frequency of the composite signal (sine + cosine)
         // hint: need to use findGCD
-        /*
-        --- missing codes -----
-        */
+
+        // The fundamental frequency of a signal is the greatest common divisor (GCD)
+        // of all the frequency components contained in a signal
+        fundFreq = findGCD((long) sineFrequency, (long) cosineFrequency);
     }
 
     /**** the following GCD code is taken from
      http://stackoverflow.com/questions/4201860/how-to-find-gcf-lcm-on-a-set-of-numbers
      ****/
-
-    private static long findGCD(long a, long b)
-    {
-        while (b > 0)
-        {
+    private static long findGCD(long a, long b) {
+        while (b > 0) {
             long temp = b;
             b = a % b; // % is remainder
             a = temp;
@@ -230,25 +209,21 @@ public class CalculusActivity extends Activity implements SeekBar.OnSeekBarChang
         return a;
     }
 
-   
-   
-    private double integrateByTrapezium()
-    {
+
+    private double integrateByTrapezium() {
         // do integration by sum of trapeziums here
         // the function to integrate is stored in productSig_double
         // time width of each trapezium is deltaTime.
-        
-        /*
-       ----- missing code ---------
-        */
-        return 0;
-        //
+        double result = 0;
+        for (int i = 0; i < productSig_double.length - 1; i++) {
+            result += 0.5 * (productSig_double[i] + productSig_double[i+1]) * deltaTime;
+        }
+        return result;
     }
 
 
     @Override
-    public void onProgressChanged(SeekBar seekBar, int progress,
-                                  boolean fromUser) {
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         // TODO Auto-generated method stub
         
         seekBar1Value = progress;
