@@ -2,6 +2,7 @@ package sg.edu.nus.cs3218tut_lewisharisnata;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,8 +22,12 @@ public class GraphActivity extends Activity {
     public  static int      bufferSize;     // in bytes
 
     public void goToMainActivity(View view) {
-        // please fill in your code here.  Remember to stop drawing before you return to the MainActivity.
-        surfaceView.drawFlag = Boolean.valueOf(false);
+        try {
+            surfaceView.drawFlag = Boolean.valueOf(false);
+            surfaceView.drawThread.join();
+        } catch (InterruptedException e) {
+            Log.d("Error closing thread", e.getMessage());
+        }
         finish();
     }
 

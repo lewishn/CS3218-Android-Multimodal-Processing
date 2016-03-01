@@ -200,7 +200,7 @@ public class CSurfaceViewSoundSampling extends SurfaceView implements SurfaceHol
 
                 // display the signal in temporal domain
                 int xStart = 0;
-                while (xStart < width - 1) {
+                while (xStart < soundSegmented.length-1) {
 
                     int yStart = soundSegmented[xStart] / height * drawScale + height/2;
                     int yStop  = soundSegmented[xStart+1] / height * drawScale + height/2;

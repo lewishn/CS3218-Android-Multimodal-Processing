@@ -61,6 +61,4 @@ public class SoundSamplingActivity extends Activity {
         }
     }
 
-
-
 }
